@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        function convert() {
+            var Ringgit = document.getElementById("ringgit").value;
+            var Section = document.getElementById("section");
+            var answer = null;
+
+            var rgt = parseFloat(Ringgit);
+            var amount = Section.options[Section.selectedIndex
+
+            ];
+            switch (amount.value) {
+                case "USD":
+                    answer = rgt * 4.20;
+                    break;
+                case "SGD":
+                    answer = rgt * 3.05;
+                    break;
+                case "EUR":
+                    answer = rgt * 4.55;
+                    break;
+
+            }
+            document.getElementById("amount").value = answer.toFixed(2);
+
+        };
+
+    </script>
+    <style type="text/css">
+        td {
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+
+        table {
+            border: 3px solid black;
+        }
+    </style>
+    <table>
+        <tr>
+            <td align="left">
+                <h3>Currency converter</h3>
+                <form action="">
+                    Ringgit Malaysia RM<input type="number" name="ringgit" id="ringgit" placeholder="0.00"
+                        style="margin-left: 10px;">
+                    <br><br>
+                    Convert to<select name="section" id="section" onchange="convert()" style="margin-left: 10px;">
+                        <option value="">Select the currency</option>
+                        <option value="USD">USD</option>
+                        <option value="SGD">SGD</option>
+                        <option value="EUR">EUR</option>
+                    </select><br><br>
+                    Amount<input type="text" name="amount" id="amount" style="margin-left: 10px;"><br><br>
+
+                    <br><br>
+
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
